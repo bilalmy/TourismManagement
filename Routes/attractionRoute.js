@@ -56,7 +56,7 @@ router.get('/get/:id',async (req,res)=>
         {
             const _id=req.params.id;
             const {name,location,entryFee,rating}=req.body;
-            const data=await Attraction.findOneAndUpdate(_id,
+            const data=await Attraction.findByIdAndUpdate(_id,
                 {
                     name,location,entryFee,rating
                 },{new:true}

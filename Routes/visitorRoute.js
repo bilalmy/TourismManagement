@@ -76,11 +76,12 @@ router.get('/get/:id',async (req,res)=>
         {
             const _id=req.params.id;
             const {name,email,visitAttractions}=req.body;
-            const data=await Visitor.findOneAndUpdate(_id,
-                {
-                    name,email,visitAttractions
-                },{new:true}
+            const data = await Visitor.findOneAndUpdate(
+                { _id: _id },  // Correct filter format: {_id: <id>}
+                { name, email, visitAttractions },  // The fields to update
+                { new: true }  // This ensures the updated document is returned
             );
+            
             if(!data)
             {
                 res.status(401).json('No visitor found');
