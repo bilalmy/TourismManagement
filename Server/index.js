@@ -8,10 +8,11 @@ db;
 const attraction=require('../Routes/attractionRoute');
 const visitior=require('../Routes/VisitorRoute');
 const review=require('../Routes/reviewRoute');
-
+const toprated=require('../Routes/toprated')
 app.use('/api/attraction',attraction);
 app.use('/api/visitor',visitior);
 app.use('/api/reviews',review);
+app.use('/api/top',toprated);
 
 
 app.listen(port, () => {
